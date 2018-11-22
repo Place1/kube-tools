@@ -14,6 +14,8 @@ RUN chmod +x helm
 
 FROM docker:stable
 RUN apk add bash
+RUN apk add git
+RUN apk add openssh
 COPY --from=builder /data/kubectl /usr/local/bin
 COPY --from=builder /data/skaffold /usr/local/bin
 COPY --from=builder /data/helm /usr/local/bin
