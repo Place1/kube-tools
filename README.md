@@ -6,3 +6,4 @@ This docker image is based on `docker:stable` and contains the following CLI too
 - `helm` 2.10.0
 - `skaffold` 0.12.0
 - `kustomize` 1.0.6
+- `git`
