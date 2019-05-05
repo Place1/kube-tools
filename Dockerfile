@@ -2,13 +2,21 @@ FROM docker:stable as builder
 RUN apk add curl
 RUN apk add tar
 WORKDIR /data
-RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.11.0/bin/linux/amd64/kubectl
+
+# kubectl
+RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/linux/amd64/kubectl
 RUN chmod +x kubectl
-RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v0.12.0/skaffold-linux-amd64
+
+# skaffold
+RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v0.28.0/skaffold-linux-amd64
 RUN chmod +x skaffold
-RUN curl -Lo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v1.0.6/kustomize_1.0.6_linux_amd64
+
+# kustomize
+RUN curl -Lo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v2.0.3/kustomize_2.0.3_linux_amd64
 RUN chmod +x kustomize
-RUN curl -Lo helm.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz
+
+# helm
+RUN curl -Lo helm.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz
 RUN tar -xzf helm.tar.gz linux-amd64/helm && mv linux-amd64/helm helm
 RUN chmod +x helm
 
