@@ -33,11 +33,14 @@ RUN apk add npm
 RUN apk add curl
 RUN apk add libc6-compat
 RUN apk add jq
+
 COPY --from=builder /data/kubectl /usr/local/bin
 COPY --from=builder /data/skaffold /usr/local/bin
 COPY --from=builder /data/helm /usr/local/bin
 COPY --from=builder /data/kustomize /usr/local/bin
 COPY --from=builder /data/pulumi/* /usr/local/bin/
+
+RUN helm init --client-only
 
 ENTRYPOINT bash
 CMD bash
