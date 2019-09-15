@@ -8,7 +8,7 @@ RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v
 RUN chmod +x kubectl
 
 # skaffold
-RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v0.37.1/skaffold-linux-amd64
+RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v0.38.0/skaffold-linux-amd64
 RUN chmod +x skaffold
 
 # kustomize
