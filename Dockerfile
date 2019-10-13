@@ -20,9 +20,15 @@ RUN curl -Lo helm.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-v2.
 RUN tar -xzf helm.tar.gz linux-amd64/helm && mv linux-amd64/helm helm
 RUN chmod +x helm
 
+# pulumi
 RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v1.0.0-linux-x64.tar.gz
 RUN tar -xzf pulumi.tar.gz pulumi/
 RUN chmod +x pulumi/*
+
+# vault
+RUN curl -Lo vault.zip https://releases.hashicorp.com/vault/1.2.3/vault_1.2.3_linux_amd64.zip
+RUN unzip vault.zip
+RUN chmod +x vault
 
 FROM docker:stable
 RUN apk add bash
@@ -39,6 +45,7 @@ COPY --from=builder /data/skaffold /usr/local/bin
 COPY --from=builder /data/helm /usr/local/bin
 COPY --from=builder /data/kustomize /usr/local/bin
 COPY --from=builder /data/pulumi/* /usr/local/bin/
+COPY --from=builder /data/vault /usr/local/bin
 
 RUN helm init --client-only
 RUN helm repo update

@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eou pipefail
 
+docker pull docker:stable
+
 IMAGE="place1/kube-tools:$(date +%Y.%m.%d)"
 
 docker login
