@@ -8,6 +8,7 @@ This docker image is based on `docker:stable` and contains the following CLI too
 - `helm` 2.14.3
 - `pulumi` 1.0.0
 - `vault` 1.2.3
+- `kubeval` 0.14.0
 - `bash` (entrypoint)
 - `git`
 - `openssh`
