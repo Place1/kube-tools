@@ -31,8 +31,9 @@ RUN unzip vault.zip
 RUN chmod +x vault
 
 #kubeval
-RUN curl -Lo tar xf kubeval-linux-amd64.tar.gz https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
-RUN tar -xzf kubeval-linux-amd64.tar.gz kubeval
+RUN curl -Lo kubeval.tar.gz https://github.com/instrumenta/kubeval/releases/download/0.14.0/kubeval-linux-amd64.tar.gz
+RUN tar -xzf kubeval.tar.gz
+RUN tar -xzf kubeval.tar.gz kubeval
 
 
 FROM docker:stable
