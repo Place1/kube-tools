@@ -21,7 +21,7 @@ RUN tar -xzf helm.tar.gz linux-amd64/helm && mv linux-amd64/helm helm
 RUN chmod +x helm
 
 # pulumi
-RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v1.0.0-linux-x64.tar.gz
+RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v1.9.1-linux-x64.tar.gz
 RUN tar -xzf pulumi.tar.gz pulumi/
 RUN chmod +x pulumi/*
 
@@ -56,6 +56,8 @@ COPY --from=builder /data/kubeval /usr/local/bin
 
 RUN helm init --client-only
 RUN helm repo update
+
+ENV PULUMI_SKIP_UPDATE_CHECK=true
 
 ENTRYPOINT bash
 CMD bash
