@@ -4,7 +4,7 @@ RUN apk add tar
 WORKDIR /data
 
 # kubectl
-RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v0.18.0/bin/linux/amd64/kubectl
+RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v0.18.1/bin/linux/amd64/kubectl
 RUN chmod +x kubectl
 
 # skaffold
