@@ -26,7 +26,7 @@ RUN curl -Lo vault.zip https://releases.hashicorp.com/vault/1.2.4/vault_1.2.4_li
 RUN unzip vault.zip
 RUN chmod +x vault
 
-#kubeval
+# kubeval
 RUN curl -Lo kubeval.tar.gz https://github.com/instrumenta/kubeval/releases/download/0.14.0/kubeval-linux-amd64.tar.gz
 RUN tar -xzf kubeval.tar.gz
 RUN tar -xzf kubeval.tar.gz kubeval

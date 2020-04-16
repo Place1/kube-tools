@@ -8,6 +8,7 @@ This docker image is based on `docker:stable` and contains the following CLI too
 - `pulumi` 1.14.0
 - `vault` 1.2.4
 - `kubeval` 0.14.0
+- `aws-iam-authenticator` 1.14.6
 - `bash` (entrypoint)
 - `git`
 - `openssh`
