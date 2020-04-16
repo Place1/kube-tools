@@ -31,6 +31,9 @@ RUN curl -Lo kubeval.tar.gz https://github.com/instrumenta/kubeval/releases/down
 RUN tar -xzf kubeval.tar.gz
 RUN tar -xzf kubeval.tar.gz kubeval
 
+# iam authenticator
+RUN curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator
+RUN chmod +x aws-iam-authenticator
 
 FROM docker:stable
 RUN apk add bash
@@ -48,6 +51,7 @@ COPY --from=builder /data/helm /usr/local/bin
 COPY --from=builder /data/pulumi/* /usr/local/bin/
 COPY --from=builder /data/vault /usr/local/bin
 COPY --from=builder /data/kubeval /usr/local/bin
+COPY --from=builder /data/aws-iam-authenticator /usr/local/bin
 
 ENV PULUMI_SKIP_UPDATE_CHECK=true
 
