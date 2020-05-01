@@ -44,6 +44,11 @@ RUN apk add npm
 RUN apk add curl
 RUN apk add libc6-compat
 RUN apk add jq
+RUN apk add py-pip python3
+RUN apk add gcc libffi-dev musl-dev openssl-dev python3-dev
+RUN apk add make
+
+RUN pip3 install azure-cli==2.5.0
 
 COPY --from=builder /data/kubectl /usr/local/bin
 COPY --from=builder /data/skaffold /usr/local/bin
