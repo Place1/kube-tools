@@ -4,20 +4,20 @@ RUN apk add tar
 WORKDIR /data
 
 # kubectl
-RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v0.18.2/bin/linux/amd64/kubectl
+RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v0.18.4/bin/linux/amd64/kubectl
 RUN chmod +x kubectl
 
 # skaffold
-RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v1.10.1/skaffold-linux-amd64
+RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v1.12.0/skaffold-linux-amd64
 RUN chmod +x skaffold
 
 # helm
-RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz
+RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz
 RUN tar -xzf helm.tar.gz linux-amd64/helm && mv linux-amd64/helm helm
 RUN chmod +x helm
 
 # pulumi
-RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v2.2.1-linux-x64.tar.gz
+RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v2.5.0-linux-x64.tar.gz
 RUN tar -xzf pulumi.tar.gz pulumi/
 RUN chmod +x pulumi/*
 
@@ -48,7 +48,7 @@ RUN apk add py-pip python3
 RUN apk add gcc libffi-dev musl-dev openssl-dev python3-dev
 RUN apk add make
 
-RUN pip3 install azure-cli==2.5.0
+RUN pip3 install azure-cli==2.8.0
 
 COPY --from=builder /data/kubectl /usr/local/bin
 COPY --from=builder /data/skaffold /usr/local/bin
