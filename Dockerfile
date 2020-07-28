@@ -50,6 +50,9 @@ RUN apk add make
 
 RUN pip3 install azure-cli==2.8.0
 
+# aws cli
+RUN pip3 install awscli==1.18.106
+
 COPY --from=builder /data/kubectl /usr/local/bin
 COPY --from=builder /data/skaffold /usr/local/bin
 COPY --from=builder /data/helm /usr/local/bin
