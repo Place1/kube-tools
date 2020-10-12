@@ -4,25 +4,25 @@ RUN apk add tar
 WORKDIR /data
 
 # kubectl
-RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v0.18.4/bin/linux/amd64/kubectl
+RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v0.19.2/bin/linux/amd64/kubectl
 RUN chmod +x kubectl
 
 # skaffold
-RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v1.12.0/skaffold-linux-amd64
+RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/download/v1.15.0/skaffold-linux-amd64
 RUN chmod +x skaffold
 
 # helm
-RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz
+RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.3.4-linux-amd64.tar.gz
 RUN tar -xzf helm.tar.gz linux-amd64/helm && mv linux-amd64/helm helm
 RUN chmod +x helm
 
 # pulumi
-RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v2.5.0-linux-x64.tar.gz
+RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v2.11.2-linux-x64.tar.gz
 RUN tar -xzf pulumi.tar.gz pulumi/
 RUN chmod +x pulumi/*
 
 # vault
-RUN curl -Lo vault.zip https://releases.hashicorp.com/vault/1.4.2/vault_1.4.2_linux_amd64.zip
+RUN curl -Lo vault.zip https://releases.hashicorp.com/vault/1.5.4/vault_1.5.4_linux_amd64.zip
 RUN unzip vault.zip
 RUN chmod +x vault
 
