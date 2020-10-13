@@ -35,6 +35,10 @@ RUN tar -xzf kubeval.tar.gz kubeval
 RUN curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.14.6/2019-08-22/bin/linux/amd64/aws-iam-authenticator
 RUN chmod +x aws-iam-authenticator
 
+# gcloud sdk
+RUN curl -Lo google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-313.0.1-linux-x86_64.tar.gz
+RUN tar -xzf google-cloud-sdk.tar.gz
+
 FROM docker:stable
 RUN apk add bash
 RUN apk add git
@@ -57,6 +61,10 @@ COPY --from=builder /data/pulumi/* /usr/local/bin/
 COPY --from=builder /data/vault /usr/local/bin
 COPY --from=builder /data/kubeval /usr/local/bin
 COPY --from=builder /data/aws-iam-authenticator /usr/local/bin
+
+# gcloud sdk
+COPY --from=builder /data/google-cloud-sdk/ /google-cloud-sdk
+RUN /google-cloud-sdk/install.sh --quiet --path-update true
 
 ENV PULUMI_SKIP_UPDATE_CHECK=true
 
