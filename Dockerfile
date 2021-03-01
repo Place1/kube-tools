@@ -4,7 +4,7 @@ RUN apk add tar
 WORKDIR /data
 
 # kubectl
-RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v1.19.2/bin/linux/amd64/kubectl
+RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/v0.20.4/bin/linux/amd64/kubectl
 RUN chmod +x kubectl
 
 # skaffold
@@ -12,12 +12,12 @@ RUN curl -Lo skaffold https://github.com/GoogleContainerTools/skaffold/releases/
 RUN chmod +x skaffold
 
 # helm
-RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.3.4-linux-amd64.tar.gz
+RUN curl -Lo helm.tar.gz https://get.helm.sh/helm-v3.5.2-linux-amd64.tar.gz
 RUN tar -xzf helm.tar.gz linux-amd64/helm && mv linux-amd64/helm helm
 RUN chmod +x helm
 
 # pulumi
-RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v2.11.2-linux-x64.tar.gz
+RUN curl -Lo pulumi.tar.gz https://get.pulumi.com/releases/sdk/pulumi-v2.21.2-linux-x64.tar.gz
 RUN tar -xzf pulumi.tar.gz pulumi/
 RUN chmod +x pulumi/*
 
