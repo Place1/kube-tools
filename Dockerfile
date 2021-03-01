@@ -49,6 +49,8 @@ RUN apk add gcc libffi-dev musl-dev openssl-dev python3-dev
 RUN apk add make
 
 RUN pip3 install azure-cli==2.8.0
+RUN curl -sSL https://sdk.cloud.google.com | bash
+ENV PATH $PATH:/root/google-cloud-sdk/bin
 
 COPY --from=builder /data/kubectl /usr/local/bin
 COPY --from=builder /data/skaffold /usr/local/bin
