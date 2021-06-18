@@ -7,7 +7,6 @@ This docker image is based on `docker:stable` and contains the following CLI too
 - `helm`
 - `pulumi`
 - `vault`
-- `kubeval`
 - `aws-iam-authenticator`
 - `bash` (entrypoint)
 - `git`
